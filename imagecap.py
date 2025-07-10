@@ -25,7 +25,7 @@ class EncoderCNN(nn.Module):
         resnet = models.resnet50(pretrained=True)
         for param in resnet.parameters():
             param.requires_grad = False
-        self.resnet = nn.Sequential(*list(resnet.children())[:-1])  # remove last FC
+        self.resnet = nn.Sequential(*list(resnet.children())[:-1]) 
         self.linear = nn.Linear(resnet.fc.in_features, embed_size)
 
     def forward(self, images):
